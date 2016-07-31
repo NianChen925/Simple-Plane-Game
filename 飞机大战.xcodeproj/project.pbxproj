@@ -13,6 +13,13 @@
 		C212B6841D4DBA64001F4512 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C212B6821D4DBA64001F4512 /* Main.storyboard */; };
 		C212B6861D4DBA64001F4512 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C212B6851D4DBA64001F4512 /* Assets.xcassets */; };
 		C212B6891D4DBA64001F4512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C212B6871D4DBA64001F4512 /* LaunchScreen.storyboard */; };
+		C212B6941D4DBAD7001F4512 /* BasePlane.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B6931D4DBAD7001F4512 /* BasePlane.m */; };
+		C212B6971D4DBAE8001F4512 /* BaseBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B6961D4DBAE8001F4512 /* BaseBullet.m */; };
+		C212B69E1D4DC069001F4512 /* Interface.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B69D1D4DC069001F4512 /* Interface.m */; };
+		C212B6A11D4DCB4A001F4512 /* OurPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B6A01D4DCB4A001F4512 /* OurPlane.m */; };
+		C212B6A41D4DCB5B001F4512 /* ArmyPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B6A31D4DCB5B001F4512 /* ArmyPlane.m */; };
+		C212B6A71D4DD932001F4512 /* OurBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B6A61D4DD932001F4512 /* OurBullet.m */; };
+		C212B6AA1D4DD940001F4512 /* ArmyBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B6A91D4DD940001F4512 /* ArmyBullet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,20 @@
 		C212B6851D4DBA64001F4512 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C212B6881D4DBA64001F4512 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C212B68A1D4DBA64001F4512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C212B6921D4DBAD7001F4512 /* BasePlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePlane.h; sourceTree = "<group>"; };
+		C212B6931D4DBAD7001F4512 /* BasePlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePlane.m; sourceTree = "<group>"; };
+		C212B6951D4DBAE8001F4512 /* BaseBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseBullet.h; sourceTree = "<group>"; };
+		C212B6961D4DBAE8001F4512 /* BaseBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseBullet.m; sourceTree = "<group>"; };
+		C212B69C1D4DC069001F4512 /* Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface.h; sourceTree = "<group>"; };
+		C212B69D1D4DC069001F4512 /* Interface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interface.m; sourceTree = "<group>"; };
+		C212B69F1D4DCB4A001F4512 /* OurPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OurPlane.h; sourceTree = "<group>"; };
+		C212B6A01D4DCB4A001F4512 /* OurPlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OurPlane.m; sourceTree = "<group>"; };
+		C212B6A21D4DCB5B001F4512 /* ArmyPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyPlane.h; sourceTree = "<group>"; };
+		C212B6A31D4DCB5B001F4512 /* ArmyPlane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyPlane.m; sourceTree = "<group>"; };
+		C212B6A51D4DD932001F4512 /* OurBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OurBullet.h; sourceTree = "<group>"; };
+		C212B6A61D4DD932001F4512 /* OurBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OurBullet.m; sourceTree = "<group>"; };
+		C212B6A81D4DD940001F4512 /* ArmyBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyBullet.h; sourceTree = "<group>"; };
+		C212B6A91D4DD940001F4512 /* ArmyBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyBullet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +79,9 @@
 		C212B6781D4DBA63001F4512 /* 飞机大战 */ = {
 			isa = PBXGroup;
 			children = (
+				C212B6981D4DBCEC001F4512 /* 界面 */,
+				C212B6911D4DBABE001F4512 /* 子弹 */,
+				C212B6901D4DBAB4001F4512 /* 飞机 */,
 				C212B67C1D4DBA63001F4512 /* AppDelegate.h */,
 				C212B67D1D4DBA63001F4512 /* AppDelegate.m */,
 				C212B67F1D4DBA63001F4512 /* ViewController.h */,
@@ -77,6 +101,41 @@
 				C212B67A1D4DBA63001F4512 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C212B6901D4DBAB4001F4512 /* 飞机 */ = {
+			isa = PBXGroup;
+			children = (
+				C212B6921D4DBAD7001F4512 /* BasePlane.h */,
+				C212B6931D4DBAD7001F4512 /* BasePlane.m */,
+				C212B69F1D4DCB4A001F4512 /* OurPlane.h */,
+				C212B6A01D4DCB4A001F4512 /* OurPlane.m */,
+				C212B6A21D4DCB5B001F4512 /* ArmyPlane.h */,
+				C212B6A31D4DCB5B001F4512 /* ArmyPlane.m */,
+			);
+			name = "飞机";
+			sourceTree = "<group>";
+		};
+		C212B6911D4DBABE001F4512 /* 子弹 */ = {
+			isa = PBXGroup;
+			children = (
+				C212B6951D4DBAE8001F4512 /* BaseBullet.h */,
+				C212B6961D4DBAE8001F4512 /* BaseBullet.m */,
+				C212B6A51D4DD932001F4512 /* OurBullet.h */,
+				C212B6A61D4DD932001F4512 /* OurBullet.m */,
+				C212B6A81D4DD940001F4512 /* ArmyBullet.h */,
+				C212B6A91D4DD940001F4512 /* ArmyBullet.m */,
+			);
+			name = "子弹";
+			sourceTree = "<group>";
+		};
+		C212B6981D4DBCEC001F4512 /* 界面 */ = {
+			isa = PBXGroup;
+			children = (
+				C212B69C1D4DC069001F4512 /* Interface.h */,
+				C212B69D1D4DC069001F4512 /* Interface.m */,
+			);
+			name = "界面";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +210,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C212B6811D4DBA63001F4512 /* ViewController.m in Sources */,
+				C212B6971D4DBAE8001F4512 /* BaseBullet.m in Sources */,
+				C212B6A11D4DCB4A001F4512 /* OurPlane.m in Sources */,
+				C212B6941D4DBAD7001F4512 /* BasePlane.m in Sources */,
+				C212B6A71D4DD932001F4512 /* OurBullet.m in Sources */,
+				C212B69E1D4DC069001F4512 /* Interface.m in Sources */,
+				C212B6AA1D4DD940001F4512 /* ArmyBullet.m in Sources */,
 				C212B67E1D4DBA63001F4512 /* AppDelegate.m in Sources */,
 				C212B67B1D4DBA63001F4512 /* main.m in Sources */,
+				C212B6A41D4DCB5B001F4512 /* ArmyPlane.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
