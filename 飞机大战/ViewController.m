@@ -157,15 +157,11 @@
     for (int i = 0; i < self.ourBullets.count; i++) {
         OurBullet *bullet = self.ourBullets[i];
         bullet.center = CGPointMake(bullet.center.x, bullet.center.y - bullet.speed);
-        
-        
-        
         if (bullet.frame.origin.y < 0) {
             [self.ourBullets removeObject:bullet];
             [bullet removeFromSuperview];
         }
     }
-    
     for (int i = 0; i < self.armyPlanes.count; i++) {
         ArmyPlane *armyPlane = self.armyPlanes[i];
         armyPlane.center = CGPointMake(armyPlane.center.x, armyPlane.center.y + armyPlane.speed);
@@ -173,8 +169,25 @@
             [self.armyPlanes removeObject:armyPlane];
             [armyPlane removeFromSuperview];
         }
+        if (CGRectIntersectsRect(self.ourPlane.frame, armyPlane.frame)) {
+            self.ourPlane.health -= 2;
+            if (self.ourPlane.health <= 0) {
+                [self.ourPlane removeFromSuperview];
+                [self.ourPlane stopTimer];
+                UIImageView *v= [[UIImageView alloc] initWithFrame:self.view.frame];
+                v.image = [UIImage imageNamed:@"gameover"];
+                [self.view addSubview:v];
+            }
+            
+            [armyPlane stopTimer];
+            [self.armyPlanes removeObject:armyPlane];
+            [armyPlane removeFromSuperview];
+            
+        }
     }
-
+    
+    
+    
     for (int i = 0; i < self.armyBullets.count; i++) {
         ArmyBullet *armyBullet = self.armyBullets[i];
         armyBullet.center = CGPointMake(armyBullet.center.x, armyBullet.center.y + armyBullet.speed);
@@ -182,6 +195,39 @@
             [self.armyBullets removeObject:armyBullet];
             [armyBullet removeFromSuperview];
         }
+        if (CGRectContainsPoint(armyBullet.frame, self.ourPlane.center)) {
+            [self.armyBullets removeObject:armyBullet];
+            [armyBullet removeFromSuperview];
+            self.ourPlane.health -= armyBullet.damageHp;
+            if (self.ourPlane.health <= 0) {
+                [self.ourPlane removeFromSuperview];
+                [self.ourPlane stopTimer];
+                UIImageView *v= [[UIImageView alloc] initWithFrame:self.view.frame];
+                v.image = [UIImage imageNamed:@"gameover"];
+                [self.view addSubview:v];
+            }
+        }
     }
+    
+    
+    
+    for (int i = 0; i < self.ourBullets.count; i++) {
+        OurBullet *bullet = self.ourBullets[i];
+        for (int i = 0; i < self.armyPlanes.count; i++) {
+            ArmyPlane *armyPlane = self.armyPlanes[i];
+            if (CGRectContainsPoint(armyPlane.frame, CGPointMake(bullet.center.x, bullet.center.y + 20))) {
+                [self.ourBullets removeObject:bullet];
+                [bullet removeFromSuperview];
+                armyPlane.health -= bullet.damageHp;
+                if (armyPlane.health <= 0) {
+                    [armyPlane stopTimer];
+                    [self.armyPlanes removeObject:armyPlane];
+                    [armyPlane removeFromSuperview];
+                }
+            }
+        }
+    }
+    
+    
 }
 @end

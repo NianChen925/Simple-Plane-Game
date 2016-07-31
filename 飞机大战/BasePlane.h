@@ -13,5 +13,7 @@
 @interface BasePlane : UIImageView
 @property (nonatomic,weak) ViewController *delegate;
 @property (nonatomic) CGFloat health;
+@property (nonatomic,strong) NSTimer *timer;
 - (void)fire;
+- (void)stopTimer;
 @end
