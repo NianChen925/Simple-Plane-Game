@@ -1,5 +1,5 @@
 //
-//  BaseBullet.h
+//  MyViewController.h
 //  飞机大战
 //
 //  Created by orange on 16/7/31.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BaseBullet : UIImageView
-@property (nonatomic) float damageHp;
-@property (nonatomic) CGFloat speed;
+@interface MyViewController : UIViewController
 
 @end

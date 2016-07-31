@@ -7,7 +7,14 @@
 //
 
 #import "BaseBullet.h"
+typedef enum : NSUInteger {
+    OurBulletOne=1,
+    OurBulletTwo,
+    OurBulletThree
+} OURBULLET;
 
 @interface OurBullet : BaseBullet
+@property (nonatomic) OURBULLET ourBulletLevel;
 
+- (instancetype)initWithFrame:(CGRect)frame level:(OURBULLET)level;
 @end

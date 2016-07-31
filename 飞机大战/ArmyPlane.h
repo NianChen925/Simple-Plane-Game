@@ -22,4 +22,8 @@ typedef enum : NSUInteger {
 
 @interface ArmyPlane : BasePlane
 @property (nonatomic) ARMYPLANE armyLevel;
+@property (nonatomic) float speed;
+
+
+- (instancetype)initWithFrame:(CGRect)frame level:(ARMYPLANE)level;
 @end

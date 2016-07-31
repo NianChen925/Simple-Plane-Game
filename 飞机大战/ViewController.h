@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
-
+@property (nonatomic,strong) NSMutableArray *ourBullets;
+@property (nonatomic,strong) NSMutableArray *armyBullets;
+@property (nonatomic,strong) NSMutableArray *armyPlanes;
 @end
 

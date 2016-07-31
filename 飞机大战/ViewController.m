@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "Interface.h"
 #import "OurPlane.h"
+#import "OurBullet.h"
+#import "ArmyPlane.h"
+#import "ArmyBullet.h"
 
 #define FPS ((1)/(30.0))
 
@@ -42,10 +45,17 @@
     self.height = self.view.bounds.size.height;
     self.interfaceLevel = LevelOne;
     self.ourLevel = OurPlaneOne;
+    self.ourBullets = [NSMutableArray array];
+    self.armyBullets = [NSMutableArray array];
+    self.armyPlanes = [NSMutableArray array];
     //初始化场景
     [self initInterface];
     //初始化我方飞机
     [self initOurPlane];
+    //初始化敌方飞机
+    [self initArmyPlane];
+    //子弹移动
+    [NSTimer scheduledTimerWithTimeInterval:FPS target:self selector:@selector(bulletsMove) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,13 +93,31 @@
     }
 }
 
-#pragma mark - 我方飞机
+#pragma mark - 初始化 敌 我 飞机
+
+//我方
 - (void)initOurPlane {
     OurPlane *ourPlane = [[OurPlane alloc] initWithFrame:CGRectMake(self.width * 0.5 - 50, self.height - 80, 100, 80) level:self.ourLevel];
-    ourPlane.contentMode = UIViewContentModeScaleToFill;
+    ourPlane.delegate = self;
     self.ourPlane = ourPlane;
     [self.view addSubview:self.ourPlane];
+    [ourPlane fire];
     
+    
+}
+
+//敌方
+- (void)initArmyPlane {
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(createArmyPlane) userInfo:nil repeats:YES];
+    
+}
+
+- (void)createArmyPlane {
+    ArmyPlane *armyPlane = [[ArmyPlane alloc] initWithFrame:CGRectMake(arc4random_uniform(self.width - 60),arc4random_uniform(self.height - 80) - self.height, 60, 80) level:arc4random_uniform(10)+1];
+    armyPlane.delegate = self;
+    [self.view addSubview:armyPlane];
+    [self.armyPlanes addObject:armyPlane];
+    [armyPlane fire];
 }
 #pragma mark - 飞机移动
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -123,5 +151,37 @@
 }
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.lastPosition = CGPointZero;
+}
+#pragma mark - 子弹移动
+- (void)bulletsMove {
+    for (int i = 0; i < self.ourBullets.count; i++) {
+        OurBullet *bullet = self.ourBullets[i];
+        bullet.center = CGPointMake(bullet.center.x, bullet.center.y - bullet.speed);
+        
+        
+        
+        if (bullet.frame.origin.y < 0) {
+            [self.ourBullets removeObject:bullet];
+            [bullet removeFromSuperview];
+        }
+    }
+    
+    for (int i = 0; i < self.armyPlanes.count; i++) {
+        ArmyPlane *armyPlane = self.armyPlanes[i];
+        armyPlane.center = CGPointMake(armyPlane.center.x, armyPlane.center.y + armyPlane.speed);
+        if (armyPlane.frame.origin.y > self.height) {
+            [self.armyPlanes removeObject:armyPlane];
+            [armyPlane removeFromSuperview];
+        }
+    }
+
+    for (int i = 0; i < self.armyBullets.count; i++) {
+        ArmyBullet *armyBullet = self.armyBullets[i];
+        armyBullet.center = CGPointMake(armyBullet.center.x, armyBullet.center.y + armyBullet.speed);
+        if (armyBullet.frame.origin.y > self.height) {
+            [self.armyBullets removeObject:armyBullet];
+            [armyBullet removeFromSuperview];
+        }
+    }
 }
 @end

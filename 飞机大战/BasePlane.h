@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 
 @interface BasePlane : UIImageView
-@property (nonatomic) int health;
+@property (nonatomic,weak) ViewController *delegate;
+@property (nonatomic) CGFloat health;
 - (void)fire;
 @end

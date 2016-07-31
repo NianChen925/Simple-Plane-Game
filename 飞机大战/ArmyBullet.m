@@ -9,6 +9,22 @@
 #import "ArmyBullet.h"
 
 @implementation ArmyBullet
-
+- (instancetype)initWithFrame:(CGRect)frame level:(ARMYBULLET)level {
+    if (self = [super initWithFrame:frame]) {
+        self.armyBulletLevel = level;
+        self.image = [UIImage imageNamed:[NSString stringWithFormat:@"epb_%lu",self.armyBulletLevel]];
+        switch (self.armyBulletLevel) {
+            case ArmyBulletOne:
+                self.damageHp = 1;
+                self.speed = 10;
+                break;
+            case ArmyBulletTwo:
+                self.damageHp = 2;
+                self.speed = 11;
+                break;
+        }
+    }
+    return self;
+}
 
 @end

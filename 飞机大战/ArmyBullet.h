@@ -8,6 +8,13 @@
 
 #import "BaseBullet.h"
 
-@interface ArmyBullet : BaseBullet
+typedef enum : NSUInteger {
+    ArmyBulletOne=1,
+    ArmyBulletTwo
+} ARMYBULLET;
 
+@interface ArmyBullet : BaseBullet
+@property (nonatomic) ARMYBULLET armyBulletLevel;
+
+- (instancetype)initWithFrame:(CGRect)frame level:(ARMYBULLET)level;
 @end
