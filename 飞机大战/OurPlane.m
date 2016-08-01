@@ -24,11 +24,9 @@
 - (void)fire {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(createBullet) userInfo:nil repeats:YES];
 }
-- (void)stopTimer {
-    [self.timer invalidate];
-}
+
 - (void)createBullet {
-    OurBullet *bullet = [[OurBullet alloc] initWithFrame:CGRectMake(self.center.x - 10, self.center.y - 35, 20, 20) level:OurBulletOne];
+    OurBullet *bullet = [[OurBullet alloc] initWithFrame:CGRectMake(self.center.x - 10, self.center.y - 35, 20, 20) level:OurBulletThree];
     [self.delegate.view addSubview:bullet];
     [self.delegate.ourBullets addObject:bullet];
 }

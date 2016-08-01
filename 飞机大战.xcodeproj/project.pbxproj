@@ -10,7 +10,6 @@
 		C212B67B1D4DBA63001F4512 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B67A1D4DBA63001F4512 /* main.m */; };
 		C212B67E1D4DBA63001F4512 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B67D1D4DBA63001F4512 /* AppDelegate.m */; };
 		C212B6811D4DBA63001F4512 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B6801D4DBA63001F4512 /* ViewController.m */; };
-		C212B6841D4DBA64001F4512 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C212B6821D4DBA64001F4512 /* Main.storyboard */; };
 		C212B6861D4DBA64001F4512 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C212B6851D4DBA64001F4512 /* Assets.xcassets */; };
 		C212B6891D4DBA64001F4512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C212B6871D4DBA64001F4512 /* LaunchScreen.storyboard */; };
 		C212B6941D4DBAD7001F4512 /* BasePlane.m in Sources */ = {isa = PBXBuildFile; fileRef = C212B6931D4DBAD7001F4512 /* BasePlane.m */; };
@@ -29,7 +28,6 @@
 		C212B67D1D4DBA63001F4512 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C212B67F1D4DBA63001F4512 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C212B6801D4DBA63001F4512 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C212B6831D4DBA64001F4512 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C212B6851D4DBA64001F4512 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C212B6881D4DBA64001F4512 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C212B68A1D4DBA64001F4512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +77,7 @@
 		C212B6781D4DBA63001F4512 /* 飞机大战 */ = {
 			isa = PBXGroup;
 			children = (
+				C2BDEF6F1D4F6E2300E9203E /* 物品 */,
 				C212B6981D4DBCEC001F4512 /* 界面 */,
 				C212B6911D4DBABE001F4512 /* 子弹 */,
 				C212B6901D4DBAB4001F4512 /* 飞机 */,
@@ -86,7 +85,6 @@
 				C212B67D1D4DBA63001F4512 /* AppDelegate.m */,
 				C212B67F1D4DBA63001F4512 /* ViewController.h */,
 				C212B6801D4DBA63001F4512 /* ViewController.m */,
-				C212B6821D4DBA64001F4512 /* Main.storyboard */,
 				C212B6851D4DBA64001F4512 /* Assets.xcassets */,
 				C212B6871D4DBA64001F4512 /* LaunchScreen.storyboard */,
 				C212B68A1D4DBA64001F4512 /* Info.plist */,
@@ -136,6 +134,13 @@
 				C212B69D1D4DC069001F4512 /* Interface.m */,
 			);
 			name = "界面";
+			sourceTree = "<group>";
+		};
+		C2BDEF6F1D4F6E2300E9203E /* 物品 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "物品";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +203,6 @@
 			files = (
 				C212B6891D4DBA64001F4512 /* LaunchScreen.storyboard in Resources */,
 				C212B6861D4DBA64001F4512 /* Assets.xcassets in Resources */,
-				C212B6841D4DBA64001F4512 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +229,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C212B6821D4DBA64001F4512 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C212B6831D4DBA64001F4512 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C212B6871D4DBA64001F4512 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -367,6 +363,7 @@
 				C212B68F1D4DBA64001F4512 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

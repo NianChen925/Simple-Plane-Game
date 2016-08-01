@@ -68,10 +68,7 @@
 
 
 - (void)fire {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(createBullet) userInfo:nil repeats:YES];
-}
-- (void)stopTimer {
-    [self.timer invalidate];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(createBullet) userInfo:nil repeats:YES];
 }
 - (void)createBullet {
     ArmyBullet *armyBullet = [[ArmyBullet alloc] initWithFrame:CGRectMake(self.center.x - 12, self.center.y+20, 20, 20) level:ArmyBulletOne];

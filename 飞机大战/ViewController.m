@@ -13,7 +13,7 @@
 #import "ArmyPlane.h"
 #import "ArmyBullet.h"
 
-#define FPS ((1)/(30.0))
+#define FPS ((1)/(60.0))
 
 
 @interface ViewController ()
@@ -32,6 +32,8 @@
 @property (nonatomic,strong) OurPlane *ourPlane;
 //上次点击点
 @property (nonatomic) CGPoint lastPosition;
+//爆炸动画
+@property (nonatomic,strong) UIImageView *iv;
 @end
 
 @implementation ViewController
@@ -48,6 +50,10 @@
     self.ourBullets = [NSMutableArray array];
     self.armyBullets = [NSMutableArray array];
     self.armyPlanes = [NSMutableArray array];
+    
+    
+    
+    
     //初始化场景
     [self initInterface];
     //初始化我方飞机
@@ -55,7 +61,7 @@
     //初始化敌方飞机
     [self initArmyPlane];
     //子弹移动
-    [NSTimer scheduledTimerWithTimeInterval:FPS target:self selector:@selector(bulletsMove) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:FPS target:self selector:@selector(move) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,23 +81,11 @@
     self.mainIVTwo = mainIVTwo;
     [self.view addSubview:self.mainIVOne];
     [self.view addSubview:self.mainIVTwo];
-    [self moveInterface];
+    
 }
 
-- (void)moveInterface {
-    [NSTimer scheduledTimerWithTimeInterval:FPS target:self selector:@selector(move) userInfo:nil repeats:YES];
-}
 
-- (void)move {
-    self.mainIVTwo.frame = CGRectMake(0, self.mainIVTwo.frame.origin.y + 3, self.width, self.height);
-    self.mainIVOne.frame = CGRectMake(0, self.mainIVOne.frame.origin.y + 3, self.width, self.height);
-    if (self.mainIVOne.frame.origin.y >= self.height) {
-        self.mainIVOne.frame = CGRectMake(0, -self.height + self.mainIVTwo.frame.origin.y, self.width, self.height);
-    }
-    if (self.mainIVTwo.frame.origin.y >= self.height) {
-        self.mainIVTwo.frame = CGRectMake(0, -self.height + self.mainIVOne.frame.origin.y, self.width, self.height);
-    }
-}
+
 
 #pragma mark - 初始化 敌 我 飞机
 
@@ -102,8 +96,6 @@
     self.ourPlane = ourPlane;
     [self.view addSubview:self.ourPlane];
     [ourPlane fire];
-    
-    
 }
 
 //敌方
@@ -153,7 +145,22 @@
     self.lastPosition = CGPointZero;
 }
 #pragma mark - 子弹移动
-- (void)bulletsMove {
+- (void)move {
+    //场景移动
+    {
+        self.mainIVTwo.frame = CGRectMake(0, self.mainIVTwo.frame.origin.y + 3, self.width, self.height);
+        self.mainIVOne.frame = CGRectMake(0, self.mainIVOne.frame.origin.y + 3, self.width, self.height);
+        if (self.mainIVOne.frame.origin.y >= self.height) {
+            self.mainIVOne.frame = CGRectMake(0, -self.height + self.mainIVTwo.frame.origin.y, self.width, self.height);
+        }
+        if (self.mainIVTwo.frame.origin.y >= self.height) {
+            self.mainIVTwo.frame = CGRectMake(0, -self.height + self.mainIVOne.frame.origin.y, self.width, self.height);
+        }
+    }
+    
+    
+    
+    
     for (int i = 0; i < self.ourBullets.count; i++) {
         OurBullet *bullet = self.ourBullets[i];
         bullet.center = CGPointMake(bullet.center.x, bullet.center.y - bullet.speed);
@@ -180,6 +187,7 @@
             }
             
             [armyPlane stopTimer];
+            [self deadAnimation:armyPlane];
             [self.armyPlanes removeObject:armyPlane];
             [armyPlane removeFromSuperview];
             
@@ -221,13 +229,21 @@
                 armyPlane.health -= bullet.damageHp;
                 if (armyPlane.health <= 0) {
                     [armyPlane stopTimer];
+                    [self deadAnimation:armyPlane];
                     [self.armyPlanes removeObject:armyPlane];
                     [armyPlane removeFromSuperview];
                 }
             }
         }
     }
-    
-    
+}
+
+- (void)deadAnimation:(UIImageView *)armyPlane {
+    self.iv = [[UIImageView alloc] initWithFrame:armyPlane.frame];
+    [self.view addSubview:self.iv ];
+    self.iv .animationImages = @[[UIImage imageNamed:@"dead_1"],[UIImage imageNamed:@"dead_2"],[UIImage imageNamed:@"dead_3"]];
+    self.iv .animationDuration = 0.8;
+    self.iv .animationRepeatCount = 1;
+    [self.iv  startAnimating];
 }
 @end

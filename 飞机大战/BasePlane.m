@@ -9,5 +9,10 @@
 #import "BasePlane.h"
 
 @implementation BasePlane
-
+- (void)stopTimer {
+    [self.timer invalidate];
+}
+- (void)fire {
+    
+}
 @end
